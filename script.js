@@ -3,12 +3,13 @@ $(function() {
   $("select").selectmenu({
     width: 125,
     change: function(e, data) {
-      var value = data.item.value || e.target.value;
+      var index = $(this).index();
+      var value = $(this).val();
+      var val = data.item.value || e.target.value;
+      var selectedIndex = data.item.index;
       $('#add-' + this.id).attr('disabled', !data.item.index);
     },
-    create: function(event, ui) {
-      // console.log({event, ui});
-    }
+    create: function(event, ui) { }
   });
 
   var components = ['question', 'answer', 'bracket', 'comparison', 'logical'];
